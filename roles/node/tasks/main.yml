@@ -21,6 +21,8 @@
   with_fileglob:
     - "{{ software_dir }}/kubernetes-*.tar.gz"
 
+- name: 下载cn插件二进制包
+  get_url: url=https://github.com/containernetworking/plugins/releases/download/v0.8.6/cni-plugins-linux-amd64-v0.8.6.tgz dest={{ software_dir }}
 - name: 分发并解压cni插件二进制包
   unarchive: src={{ item }} dest=/opt/cni/bin
   with_fileglob:
@@ -58,10 +60,10 @@
     - kubelet
     - kube-proxy
 
-- name: 分发预准备镜像
-  copy: src={{ software_dir }}/image.tar.gz dest={{ tmp_dir }}
+#- name: 分发预准备镜像
+#  copy: src={{ software_dir }}/image.tar.gz dest={{ tmp_dir }}
 
-- name: 导入镜像
-  shell: cd {{ tmp_dir }} && \
-         tar zxf image.tar.gz && \
-         for image in $(ls *.tar);do docker load < $image;done
+#- name: 导入镜像
+#  shell: cd {{ tmp_dir }} && \
+#         tar zxf image.tar.gz && \
+#         for image in $(ls *.tar);do docker load < $image;done

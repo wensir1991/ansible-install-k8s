@@ -8,6 +8,8 @@
 
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
+- name: 下载etcd二进制包
+  get_url: url=https://github.com/etcd-io/etcd/releases/download/v3.4.9/etcd-v3.4.9-linux-amd64.tar.gz dest={{ software_dir }}
 
 - name: 分发并解压etcd二进制包
   unarchive: src={{ item }} dest={{ tmp_dir }}
@@ -39,4 +41,4 @@
 - name: 获取etcd集群状态
   shell: /bin/bash {{ tmp_dir }}/etcd.sh
   register: status 
-- debug: var=status.stdout_lines
+- debug: var=status.stdout_line

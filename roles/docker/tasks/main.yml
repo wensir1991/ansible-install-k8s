@@ -2,6 +2,9 @@
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
 
+- name: 下载docker二进制包
+  get_url: url=https://download.docker.com/linux/static/stable/x86_64/docker-19.03.9.tgz dest={{ software_dir }} 
+
 - name: 分发并解压docker二进制包
   unarchive: src={{ item }} dest={{ tmp_dir }}
   with_fileglob:

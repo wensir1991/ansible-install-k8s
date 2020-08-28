@@ -12,6 +12,8 @@
 
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
+- name: 下载k8s二进制包
+  get_url: url=https://dl.k8s.io/v1.18.3/kubernetes-server-linux-amd64.tar.gz dest={{ software_dir }}
 
 - name: 分发并解压k8s二进制包
   unarchive: src={{ item }} dest={{ tmp_dir }}

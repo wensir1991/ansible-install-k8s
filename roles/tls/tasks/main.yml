@@ -8,6 +8,8 @@
   with_items:
     - etcd
     - k8s
+- name: 移动cfss工具到k8s软件包目录
+  copy: src=files/cfssl.tar.gz dest={{ software_dir }}
 
 - name: 准备cfssl工具
   unarchive: src={{ software_dir }}/cfssl.tar.gz dest=/usr/bin/ mode=u+x
