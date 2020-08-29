@@ -169,7 +169,7 @@ spec:
       serviceAccountName: flannel
       initContainers:
       - name: install-cni
-        image: lizhenliang/flannel:v0.11.0-amd64 
+        image: wenjusir1991/wenju:flannelv0.11.0-amd64 
         command:
         - cp
         args:
