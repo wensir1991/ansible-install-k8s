@@ -183,7 +183,7 @@ spec:
           mountPath: /etc/kube-flannel/
       containers:
       - name: kube-flannel
-        image: lizhenliang/flannel:v0.11.0-amd64 
+        image: wenjusir1991/wenju:flannelv0.11.0-amd64 
         command:
         - /opt/bin/flanneld
         args:
