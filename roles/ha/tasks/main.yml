@@ -1,6 +1,8 @@
 ---
 - name: 创建临时目录
   file: dest={{ tmp_dir }} state=directory
+- name: 移动nginx,keepalived安装包到k8s安装包目录下
+  copy: src=files/ha.tar.gz dest={{ software_dir }}
 
 - name: 拷贝nginx,keepalived安装包
   unarchive: src={{ software_dir }}/ha.tar.gz dest={{ tmp_dir }}
