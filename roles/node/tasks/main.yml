@@ -21,7 +21,7 @@
   with_fileglob:
     - "{{ software_dir }}/kubernetes-*.tar.gz"
 
-- name: 下载cn插件二进制包
+- name: 下载cni插件二进制包
   get_url: url=https://github.com/containernetworking/plugins/releases/download/v0.8.6/cni-plugins-linux-amd64-v0.8.6.tgz dest={{ software_dir }}
 - name: 分发并解压cni插件二进制包
   unarchive: src={{ item }} dest=/opt/cni/bin
